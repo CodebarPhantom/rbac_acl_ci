@@ -16,12 +16,11 @@ class Dashboard_model extends CI_Model
 
     
 
-    public function getDataHotel($user_ho){
-        $this->db->select('u.idhotels, h.hotels_name, h.total_rooms');
-        $this->db->from('smartreport_users as u');
-        $this->db->join('smartreport_hotels as h', 'u.idhotels=h.idhotels','left');
-        $this->db->where('parent','PARENT');
-        $this->db->where('h.idhotels', $user_ho);
+    public function getDatalevel($user_le){
+        $this->db->select('u.user_level, r.roles_name');
+        $this->db->from('rbac_users as u');
+        $this->db->join('roles as r', 'u.user_level=r.idroles','left');
+        $this->db->where('r.idroles', $user_le);
         $query = $this->db->get()->row();
         //$result = $query->result();
         $this->db->save_queries = false;

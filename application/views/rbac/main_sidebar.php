@@ -31,13 +31,8 @@
                     <div class="media-title font-weight-semibold"><?php echo $user_na; ?></div>
                     <div class="font-size-xs opacity-50">
                         <i class="icon-vcard font-size-sm"></i> &nbsp;
-                            <?php if ($user_le == '1'){
-                                echo "Superadmin";
-                            }else if ($user_le == '2'){
-                                echo "Manager";
-                            }else if ($user_le == '3'){
-                                echo "Staff";
-                            } ?><br/>
+                        <?php $session_level = $this->Dashboard_model->getDatalevel($user_le); echo $session_level->roles_name ?>
+                            <br/>
                         
                     </div>
                     

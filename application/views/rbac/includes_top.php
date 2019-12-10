@@ -47,11 +47,9 @@
     $user_na = $this->session->userdata('user_name');  
     $user_em = $this->session->userdata('user_email');    
 	$user_le = $this->session->userdata('user_level');
-	$this->session->userdata('referred_from', current_url());
-
     
-
-    if (empty($user_id && $user_na && $user_le)) {
+	
+    if (empty($user_id) && empty($user_na) && empty($user_le)) {
         redirect(base_url(), 'refresh');
     }
 
